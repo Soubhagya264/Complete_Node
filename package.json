@@ -1,0 +1,21 @@
+{
+  "name": "node-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":""
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Soubhagya264/Complete_Node.git"
+  },
+  "author": "Soubhagya Nayak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Soubhagya264/Complete_Node/issues"
+  },
+  "homepage": "https://github.com/Soubhagya264/Complete_Node#readme"
+}
