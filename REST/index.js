@@ -2,7 +2,20 @@ const express = require('express')
 const users = require("./MOCK_DATA.json")
 const app = express()
 const port = 3000
+//Middleware
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+
+app.use((req, res, next) => {
+    console.log("Request received")
+    next();
+})
+
 app.get("/users", (req, res) => {
+    res.setHeader(
+        "Content-Type",
+        "application/json"
+    )
     const html = `
     <ul>
     ${users.slice(Math.floor(Math.random() * 10), 100).map(user => `<div style="display: grid;
@@ -82,7 +95,6 @@ app.put("/api/users/:id", (req, res) => {
         return res.status(404).json({ message: "User not found" })
     }
 })
-
 // Delete Route
 app.delete("/api/users/:id", (req, res) => {
     const id = req.params.id
@@ -96,8 +108,4 @@ app.delete("/api/users/:id", (req, res) => {
         return res.status(404).json({ message: "User not found" })
     }
 })
-
-
-
-
 app.listen(port, () => console.log(` app listening on port ${port}!`))
